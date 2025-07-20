@@ -21,15 +21,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const spotsLeft = details.max_participants - details.participants.length;
 
         // Create participants list
-        let participantsHTML = "<ul class='participants-list'>";
+        const participantsList = document.createElement("ul");
+        participantsList.className = "participants-list";
         if (details.participants.length === 0) {
-          participantsHTML += "<li class='no-participants'>No participants yet</li>";
+          const noParticipantsItem = document.createElement("li");
+          noParticipantsItem.className = "no-participants";
+          noParticipantsItem.textContent = "No participants yet";
+          participantsList.appendChild(noParticipantsItem);
         } else {
           details.participants.forEach(email => {
-            participantsHTML += `<li class='participant-item'>${email}</li>`;
+            const participantItem = document.createElement("li");
+            participantItem.className = "participant-item";
+            participantItem.textContent = email;
+            participantsList.appendChild(participantItem);
           });
         }
-        participantsHTML += "</ul>";
 
         activityCard.innerHTML = `
           <h4>${name}</h4>
