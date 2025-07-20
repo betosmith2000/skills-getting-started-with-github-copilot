@@ -91,7 +91,7 @@ section h3 {
 
 .participants-list {
   list-style-type: disc;
-  margin-left: 22px;
+  margin-left: var(--participants-list-margin-left);
   margin-bottom: 0;
   padding-left: 0;
 }
